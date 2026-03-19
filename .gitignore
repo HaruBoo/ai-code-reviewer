@@ -1,0 +1,11 @@
+# 環境変数
+server/.env
+
+# 依存関係
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# ビルド成果物
+dist/
+client/dist/
