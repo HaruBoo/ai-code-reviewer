@@ -4,6 +4,8 @@ function App() {
   const [code, setCode] = useState('')
   const [review, setReview] = useState('')
   const [loading, setLoading] = useState(false)
+  const [tilContent, setTilContent] = useState('') // TILのメモを入力するstate
+  const [saving, setSaving] = useState(false)      // TIL保存中のローディングstate
 
   const handleReview = async () => {
     setLoading(true)
@@ -15,6 +17,19 @@ function App() {
     const data = await res.json()
     setReview(data.review)
     setLoading(false)
+  }
+
+  const handleSaveTil = async () => {
+    setSaving(true)  // ローディング開始
+    await fetch('http://localhost:3001/api/til', {
+      method: 'POST',  // データを送る
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ 
+        content: tilContent ,  // TILのメモ内容
+        code: code      // レビューしたコード
+      })
+    })
+    setSaving(false)  // ローディング終了
   }
 
   return (
@@ -35,6 +50,18 @@ function App() {
         <div style={{ marginTop: '2rem', whiteSpace: 'pre-wrap' }}>
           <h2>レビュー結果</h2>
           {review}
+
+          <h3>TILメモ</h3>
+          <textarea
+            value={tilContent}
+            onChange={(e) => setTilContent(e.target.value)}
+            placeholder="学んだことをメモしよう"
+            rows={4}
+            style={{ width: '100%', fontSize: '14px' }}
+          />
+          <button onClick={handleSaveTil} disabled={saving}>
+            {saving ? '保存中...' : 'TILに保存'}
+      </button>
         </div>
       )}
     </div>
