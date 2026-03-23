@@ -12,7 +12,7 @@ function App() {
 
   const handleReview = async () => {
     setLoading(true)
-    const res = await fetch('http://localhost:3001/api/review', {
+    const res = await fetch('https://ai-code-reviewer-production-6a22.up.railway.app', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ code })
@@ -25,7 +25,7 @@ function App() {
 
   const handleSaveTil = async () => {
     setSaving(true)  // ローディング開始
-    await fetch('http://localhost:3001/api/til', {
+    await fetch('https://ai-code-reviewer-production-6a22.up.railway.app', {
       method: 'POST',  // データを送る
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ 

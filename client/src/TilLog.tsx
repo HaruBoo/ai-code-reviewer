@@ -15,7 +15,7 @@ function TilLog() {
   }, [])
 
   const fetchTils = async () => {
-    const res = await fetch('http://localhost:3001/api/til')  //エンドポイント
+    const res = await fetch('https://ai-code-reviewer-production-6a22.up.railway.app')  //エンドポイント
     const data = await res.json()
     setTils(data.tils)  // stateに保存
   }
