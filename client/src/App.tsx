@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TilLog from './TilLog'
+import ReactMarkdown from 'react-markdown'
 
 function App() {
   const [code, setCode] = useState('')
@@ -109,10 +110,9 @@ function App() {
           padding: '16px',
           fontSize: '14px',
           lineHeight: '1.8',
-          whiteSpace: 'pre-wrap',
           color: '#374151'
         }}>
-          {review}
+          <ReactMarkdown>{review}</ReactMarkdown>
         </div>
 
         <div style={{ marginTop: '24px', borderTop: '1px solid #f0f0f0', paddingTop: '20px' }}>
@@ -131,9 +131,10 @@ function App() {
               color: '#0369a1',
           }}>
             <p style={{ fontWeight: '600', marginBottom: '4px' }}>AIの提案</p>
-            <p>{tilSuggestion}</p>
+            <ReactMarkdown>{tilSuggestion}</ReactMarkdown>
          </div>
         )}
+
           <textarea
             value={tilContent}
             onChange={(e) => setTilContent(e.target.value)}
