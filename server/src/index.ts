@@ -4,7 +4,9 @@ import dotenv from 'dotenv'             // dotenvをインポート
 import { reviewRouter } from './review' // コードレビューのreviewRouterをインポート
 import { tilRouter } from './til'       // TILのtilRouterをインポート
 
-dotenv.config() // .envを読み込む
+if (process.env.NODE_ENV !== 'production') {
+  dotenv.config()
+}
 const app = express()
 const PORT = 3001
 
