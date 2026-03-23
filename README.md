@@ -168,6 +168,6 @@ JavaのCLIツールとしてコードレビューツールを作成した後、W
 
 ## 作者
 
-**HaruBoo** — 20歳 / SESエンジニア / AI×開発ツールに興味あり
+**HaruBoo** — 20歳 / エンジニア / AI×開発ツールに興味あり
 
 GitHub: [@HaruBoo](https://github.com/HaruBoo)
