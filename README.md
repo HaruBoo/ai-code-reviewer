@@ -1,3 +1,9 @@
+[English](#english) | [日本語](#japanese)
+
+---
+
+<a id="english"></a>
+
 # AI Code Reviewer
 
 > AI-powered code review tool with integrated learning log — Built with Claude API, React, TypeScript, and Supabase.
@@ -119,13 +125,25 @@ Open [http://localhost:5173](http://localhost:5173)
 
 ---
 
+## Author
+
+**HaruBoo** — 20 y/o Software Engineer / Interested in AI × Developer Tools
+
+GitHub: [@HaruBoo](https://github.com/HaruBoo)
+
 ---
+
+---
+
+<a id="japanese"></a>
 
 # AI Code Reviewer（日本語）
 
 > Claude APIを活用したAIコードレビューツール + 学習ログ機能
 
 🔗 **デモ**: [ai-code-reviewer-alpha-khaki.vercel.app](https://ai-code-reviewer-alpha-khaki.vercel.app)
+
+[English](#english) | [日本語](#japanese)
 
 ---
 
@@ -166,8 +184,17 @@ JavaのCLIツールとしてコードレビューツールを作成した後、W
 
 ---
 
+## 今後の改善予定
+
+- [ ] レビュー観点の選択（セキュリティ / パフォーマンス / 可読性）
+- [ ] TIL検索・タグ絞り込み
+- [ ] ユーザー認証
+- [ ] レビュー履歴
+
+---
+
 ## 作者
 
-**HaruBoo** — 20歳 / エンジニア / AI×開発ツールに興味あり
+**HaruBoo** — 20歳 / SESエンジニア / AI×開発ツールに興味あり
 
 GitHub: [@HaruBoo](https://github.com/HaruBoo)
