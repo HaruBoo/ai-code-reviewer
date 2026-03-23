@@ -19,18 +19,37 @@ function TilLog() {
     const data = await res.json()
     setTils(data.tils)  // stateに保存
   }
-
+  
   return (
-    <div>
-      <h2>TILログ</h2>
-      {tils.map((til) => (
-        <div key={til.id}>
-          <p>{til.content}</p>
-          <p>{til.created_at}</p>
+  <div style={{
+    background: '#fff',
+    borderRadius: '16px',
+    padding: '28px',
+    boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+  }}>
+    <h2 style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a2e', marginBottom: '20px' }}>
+      TILログ
+    </h2>
+    {tils.length === 0 ? (
+      <p style={{ color: '#9ca3af', fontSize: '14px' }}>まだ学びが記録されていません</p>
+    ) : (
+      tils.map((til) => (
+        <div key={til.id} style={{
+          borderLeft: '3px solid #4f46e5',
+          paddingLeft: '16px',
+          marginBottom: '20px',
+        }}>
+          <p style={{ fontSize: '14px', fontWeight: '600', color: '#1a1a2e', marginBottom: '4px' }}>
+            {til.content}
+          </p>
+          <p style={{ fontSize: '12px', color: '#9ca3af' }}>
+            {new Date(til.created_at).toLocaleDateString('ja-JP')}
+          </p>
         </div>
-      ))}
-    </div>
-  )
+      ))
+    )}
+  </div>
+)
 }
 
 export default TilLog

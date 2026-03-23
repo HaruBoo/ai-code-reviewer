@@ -34,42 +34,129 @@ function App() {
   }
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-      <h1>AI Code Reviewer</h1>
+  <div>
+    <header style={{ marginBottom: '40px' }}>
+      <h1 style={{ fontSize: '28px', fontWeight: '700', color: '#1a1a2e' }}>
+        AI Code Reviewer
+      </h1>
+      <p style={{ color: '#6b7280', marginTop: '6px', fontSize: '15px' }}>
+        コードをレビューして、学びを記録しよう
+      </p>
+    </header>
+
+    <div style={{
+      background: '#fff',
+      borderRadius: '16px',
+      padding: '28px',
+      boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+      marginBottom: '24px'
+    }}>
+      <label style={{ fontSize: '13px', fontWeight: '600', color: '#374151', display: 'block', marginBottom: '8px' }}>
+        コードを入力
+      </label>
       <textarea
         value={code}
         onChange={(e) => setCode(e.target.value)}
         placeholder="レビューしたいコードを貼り付けてください"
         rows={10}
-        style={{ width: '100%', fontSize: '14px' }}
+        style={{
+          width: '100%',
+          fontSize: '13px',
+          fontFamily: 'monospace',
+          background: '#f8f9fb',
+          border: '1px solid #e5e7eb',
+          borderRadius: '10px',
+          padding: '14px',
+          resize: 'vertical',
+          outline: 'none',
+        }}
       />
-      <br />
-      <button onClick={handleReview} disabled={loading}>
+      <button
+        onClick={handleReview}
+        disabled={loading}
+        style={{
+          marginTop: '14px',
+          padding: '10px 24px',
+          background: loading ? '#9ca3af' : '#4f46e5',
+          color: '#fff',
+          border: 'none',
+          borderRadius: '8px',
+          fontSize: '14px',
+          fontWeight: '600',
+          cursor: loading ? 'not-allowed' : 'pointer',
+        }}
+      >
         {loading ? 'レビュー中...' : 'レビューする'}
       </button>
-      {review && (
-        <div style={{ marginTop: '2rem', whiteSpace: 'pre-wrap' }}>
-          <h2>レビュー結果</h2>
-          {review}
+    </div>
 
-          <h3>TILメモ</h3>
+    {review && (
+      <div style={{
+        background: '#fff',
+        borderRadius: '16px',
+        padding: '28px',
+        boxShadow: '0 1px 4px rgba(0,0,0,0.08)',
+        marginBottom: '24px'
+      }}>
+        <h2 style={{ fontSize: '16px', fontWeight: '600', marginBottom: '16px', color: '#1a1a2e' }}>
+          レビュー結果
+        </h2>
+        <div style={{
+          background: '#f8f9fb',
+          borderRadius: '10px',
+          padding: '16px',
+          fontSize: '14px',
+          lineHeight: '1.8',
+          whiteSpace: 'pre-wrap',
+          color: '#374151'
+        }}>
+          {review}
+        </div>
+
+        <div style={{ marginTop: '24px', borderTop: '1px solid #f0f0f0', paddingTop: '20px' }}>
+          <label style={{ fontSize: '13px', fontWeight: '600', color: '#374151', display: 'block', marginBottom: '8px' }}>
+            学びをメモする
+          </label>
           <textarea
             value={tilContent}
             onChange={(e) => setTilContent(e.target.value)}
-            placeholder="学んだことをメモしよう"
-            rows={4}
-            style={{ width: '100%', fontSize: '14px' }}
+            placeholder="今日学んだことをメモしよう..."
+            rows={3}
+            style={{
+              width: '100%',
+              fontSize: '14px',
+              background: '#f8f9fb',
+              border: '1px solid #e5e7eb',
+              borderRadius: '10px',
+              padding: '12px',
+              resize: 'vertical',
+              outline: 'none',
+            }}
           />
-          <button onClick={handleSaveTil} disabled={saving}>
+          <button
+            onClick={handleSaveTil}
+            disabled={saving}
+            style={{
+              marginTop: '10px',
+              padding: '10px 24px',
+              background: saving ? '#9ca3af' : '#10b981',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '8px',
+              fontSize: '14px',
+              fontWeight: '600',
+              cursor: saving ? 'not-allowed' : 'pointer',
+            }}
+          >
             {saving ? '保存中...' : 'TILに保存'}
           </button>
         </div>
-      )}
+      </div>
+    )}
 
-      <TilLog />
-      
-    </div>
-  )
+    <TilLog />
+  </div>
+)
 }
 
 export default App
