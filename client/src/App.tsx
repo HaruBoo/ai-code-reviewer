@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TilLog from './TilLog'
 
 function App() {
   const [code, setCode] = useState('')
@@ -61,9 +62,12 @@ function App() {
           />
           <button onClick={handleSaveTil} disabled={saving}>
             {saving ? '保存中...' : 'TILに保存'}
-      </button>
+          </button>
         </div>
       )}
+
+      <TilLog />
+      
     </div>
   )
 }

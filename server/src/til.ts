@@ -3,8 +3,6 @@ import { createClient } from '@supabase/supabase-js'
 
 const router = Router()
 
-
-
 router.post('/til', async (req, res) => {
   const supabase = createClient(
     process.env.SUPABASE_URL!,
