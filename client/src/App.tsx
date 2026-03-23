@@ -5,8 +5,9 @@ function App() {
   const [code, setCode] = useState('')
   const [review, setReview] = useState('')
   const [loading, setLoading] = useState(false)
-  const [tilContent, setTilContent] = useState('') // TILのメモを入力するstate
-  const [saving, setSaving] = useState(false)      // TIL保存中のローディングstate
+  const [tilContent, setTilContent] = useState('')        // TILのメモを入力するstate
+  const [saving, setSaving] = useState(false)             // TIL保存中のローディングstate
+  const [tilSuggestion, setTilSuggestion] = useState('')  // AIが提案したTIL候補
 
   const handleReview = async () => {
     setLoading(true)
@@ -17,6 +18,7 @@ function App() {
     })
     const data = await res.json()
     setReview(data.review)
+    setTilSuggestion(data.tilSuggestion)
     setLoading(false)
   }
 
@@ -40,7 +42,7 @@ function App() {
         AI Code Reviewer
       </h1>
       <p style={{ color: '#6b7280', marginTop: '6px', fontSize: '15px' }}>
-        コードをレビューして、学びを記録しよう
+        コードをレビューして、学びを記録しよう!
       </p>
     </header>
 
@@ -117,6 +119,21 @@ function App() {
           <label style={{ fontSize: '13px', fontWeight: '600', color: '#374151', display: 'block', marginBottom: '8px' }}>
             学びをメモする
           </label>
+
+        {tilSuggestion && (
+            <div style={{
+              background: '#f0f9ff',
+              border: '1px solid #bae6fd',
+              borderRadius: '10px',
+              padding: '12px',
+              marginBottom: '12px',
+              fontSize: '13px',
+              color: '#0369a1',
+          }}>
+            <p style={{ fontWeight: '600', marginBottom: '4px' }}>AIの提案</p>
+            <p>{tilSuggestion}</p>
+         </div>
+        )}
           <textarea
             value={tilContent}
             onChange={(e) => setTilContent(e.target.value)}
