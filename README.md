@@ -1,4 +1,4 @@
-[日本語版はこちら](README.ja.md)
+[日本語版](README.ja.md)
 
 # AI Code Reviewer
 
