@@ -1,8 +1,4 @@
-[English](#english) | [日本語](#japanese)
-
----
-
-<a id="english"></a>
+[日本語版はこちら](README.ja.md)
 
 # AI Code Reviewer
 
@@ -10,15 +6,11 @@
 
 🔗 **Live Demo**: [ai-code-reviewer-alpha-khaki.vercel.app](https://ai-code-reviewer-alpha-khaki.vercel.app)
 
----
-
 ## Overview
 
 AI Code Reviewer is a full-stack web application that combines AI-powered code review with a personal learning journal (TIL — Today I Learned).
 
 Paste your code → Get an instant AI review → Save what you learned → Build your knowledge base.
-
----
 
 ## Features
 
@@ -27,8 +19,6 @@ Paste your code → Get an instant AI review → Save what you learned → Build
 - **TIL Learning Log** — Save your learnings to a personal knowledge base backed by Supabase
 - **Markdown Rendering** — Review results are beautifully rendered with full markdown support
 - **Modern UI** — Clean, responsive design with a light theme optimized for developers
-
----
 
 ## Tech Stack
 
@@ -41,10 +31,7 @@ Paste your code → Get an instant AI review → Save what you learned → Build
 | Deploy (Frontend) | Vercel |
 | Deploy (Backend) | Railway |
 
----
-
 ## Architecture
-
 ```
 Browser (React + TypeScript)
     ↓ fetch POST /api/review
@@ -57,8 +44,6 @@ Supabase → TIL data saved
 Browser → Rendered with react-markdown
 ```
 
----
-
 ## Getting Started
 
 ### Prerequisites
@@ -68,42 +53,24 @@ Browser → Rendered with react-markdown
 - Supabase project
 
 ### Installation
-
 ```bash
-# Clone the repository
 git clone https://github.com/HaruBoo/ai-code-reviewer.git
 cd ai-code-reviewer
 
-# Install client dependencies
 cd client && npm install
-
-# Install server dependencies
 cd ../server && npm install
 ```
 
 ### Environment Variables
 
 Create `server/.env`:
-
 ```env
 ANTHROPIC_API_KEY=your_anthropic_api_key
 SUPABASE_URL=your_supabase_project_url
 SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-### Database Setup
-
-Create a `tils` table in Supabase:
-
-| Column | Type | Default |
-|--------|------|---------|
-| id | uuid | gen_random_uuid() |
-| content | text | — |
-| code | text | — |
-| created_at | timestamptz | now() |
-
 ### Run Locally
-
 ```bash
 # Terminal 1 — Start backend
 cd server && npm run dev
@@ -114,16 +81,6 @@ cd client && npm run dev
 
 Open [http://localhost:5173](http://localhost:5173)
 
----
-
----
-
 ## Author
 
 [HaruBoo](https://github.com/HaruBoo) — Aspiring AI engineer based in Tokyo. Building developer tools with Claude API.
-
-GitHub: [@HaruBoo](https://github.com/HaruBoo)
-
----
-
----
