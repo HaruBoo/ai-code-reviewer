@@ -1,13 +1,10 @@
-<a id="japanese"></a>
-
-# AI Code Reviewer（日本語）
-
 > Claude APIを活用したAIコードレビューツール + 学習ログ機能
 
 🔗 **デモ**: [ai-code-reviewer-alpha-khaki.vercel.app](https://ai-code-reviewer-alpha-khaki.vercel.app)
 
-[English](#english) | [日本語](#japanese)
+[English](README.md)
 
+# AI Code Reviewer（日本語）
 ---
 
 ## 概要
